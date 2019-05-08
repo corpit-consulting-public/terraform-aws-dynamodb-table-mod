@@ -1,40 +1,33 @@
-resource "aws_dynamodb_table" "basic-dynamodb-table" {
-  name           = "GameScores"
-  billing_mode   = "PROVISIONED"
-  read_capacity  = 20
-  write_capacity = 20
-  hash_key       = "UserId"
-  range_key      = "GameTitle"
+resource "aws_dynamodb_table" "basic-dynamodb-table-1" {
+  count          = "${var.has_global_secondary_index ? 0 : 1}"
+  name           = "${var.name}"
+  billing_mode   = "${var.billing_mode}"
+  read_capacity  = "${var.read_capacity}"
+  write_capacity = "${var.write_capacity}"
+  hash_key       = "${var.hash_key}"
+  range_key      = "${var.range_key}"
+  attribute      = "${var.attribute}"
+} 
 
-  attribute {
-    name = "UserId"
-    type = "S"
-  }
-
-  attribute {
-    name = "GameTitle"
-    type = "S"
-  }
-
-  attribute {
-    name = "TopScore"
-    type = "N"
-  }
-
+resource "aws_dynamodb_table" "basic-dynamodb-table-2" {
+  count          = "${var.has_global_secondary_index ? 1 : 0}"
+  name           = "${var.name}"
+  billing_mode   = "${var.billing_mode}"
+  read_capacity  = "${var.read_capacity}"
+  write_capacity = "${var.write_capacity}"
+  hash_key       = "${var.hash_key}"
+  range_key      = "${var.range_key}"
+  attribute      = "${var.attribute}"
   global_secondary_index {
-    name               = "GameTitleIndex"
-    hash_key           = "GameTitle"
-    range_key          = "TopScore"
-    write_capacity     = 10
-    read_capacity      = 10
-    projection_type    = "INCLUDE"
-    non_key_attributes = ["UserId"]
+    name               = "${var.global_index_name}"
+    hash_key           = "${var.global_index_hash_key}"
+    range_key          = "${var.global_index_range_key}"
+    write_capacity     = "${var.global_index_write_capacity}"
+    read_capacity      = "${var.global_index_read_capacity}"
+    projection_type    = "${var.global_index_projection_type}"
+    non_key_attributes = "${var.global_index_non_key_attributes}"
   }
-
-  tags = {
-    Name        = "dynamodb-table-1"
-    Environment = "production"
-  }
+  tags = "${var.tags}"
 }
 
 # Notes: attribute can be lists#

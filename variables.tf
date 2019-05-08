@@ -37,9 +37,9 @@ variable "read_capacity" {
 }
 
 variable "attribute" {
-  type        = "string"
+  type        = "list"
   description = "List of nested attribute definitions. Only required for hash_key and range_key attributes. Each attribute has two properties"
-  default     = ""
+  default     = []
 }
 
 variable "attribute_name" {
@@ -82,7 +82,11 @@ variable "global_secondary_index" {
   type        = "string"
   description = "Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc"
   default     = ""
-} 
+}
+
+variable "has_global_secondary_index" {
+  default = "false"
+}
 
 variable "stream_enable" {
   type        = "string"
@@ -103,9 +107,9 @@ variable "server_side_encryption" {
 }
 
 variable "tags" {
-  type        = "string"
-  description = "A map of tags to populate on the created table"
-  default     = ""
+  type        = "map"
+  description = "A map of tags to populate on the created table. Name, Environment"
+  default     = {}
 }
 
 variable "point_in_time_recovery" {
@@ -173,13 +177,13 @@ variable "global_index_name" {
 variable "global_index_write_capacity" {
   type        = "string"
   description = "The number of write units for this index. Must be set if billing+mode is set to PROVISIONED"
-  default     = ""
+  default     = "10"
 }
 
 variable "global_index_read_capacity" {
   type        = "string"
   description = "The number of read units for this index. Must be set if billing_mode is set to PROVISIONED"
-  default     = ""
+  default     = "10"
 }
 
 variable "global_index_hash_key" {
@@ -188,7 +192,7 @@ variable "global_index_hash_key" {
   default     = ""
 }
 
-variable "global_index_ranged_key" {
+variable "global_index_range_key" {
   type        = "string"
   description = "The name of the range key; must be defined"
   default     = ""
@@ -201,9 +205,9 @@ variable "global_index_projection_type" {
 }
 
 variable "global_index_non_key_attributes" {
-  type        = "string"
+  type        = "list"
   description = "Only required with INCLUDE as a projection type; a list of attributes to project into the index. Thes do not need to be defined as attributes on the table"
-  default     = ""
+  default     = []
 }
 
 ##Variable for server_side_encryption
