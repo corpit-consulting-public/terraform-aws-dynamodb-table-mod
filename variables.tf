@@ -85,7 +85,9 @@ variable "global_secondary_index" {
 }
 
 variable "has_global_secondary_index" {
-  default = "false"
+  type        = "string"
+  description = "TRUE or FALSE"
+  default     = "false"
 }
 
 variable "stream_enable" {

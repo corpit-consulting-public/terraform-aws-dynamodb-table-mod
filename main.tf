@@ -1,4 +1,4 @@
-resource "aws_dynamodb_table" "basic-dynamodb-table-1" {
+resource "aws_dynamodb_table" "dynamodb-table-1" {
   count          = "${var.has_global_secondary_index ? 0 : 1}"
   name           = "${var.name}"
   billing_mode   = "${var.billing_mode}"
@@ -9,7 +9,7 @@ resource "aws_dynamodb_table" "basic-dynamodb-table-1" {
   attribute      = "${var.attribute}"
 } 
 
-resource "aws_dynamodb_table" "basic-dynamodb-table-2" {
+resource "aws_dynamodb_table" "dynamodb-table-2" {
   count          = "${var.has_global_secondary_index ? 1 : 0}"
   name           = "${var.name}"
   billing_mode   = "${var.billing_mode}"
