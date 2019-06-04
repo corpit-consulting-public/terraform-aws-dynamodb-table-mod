@@ -90,10 +90,10 @@ variable "has_global_secondary_index" {
   default     = "false"
 }
 
-variable "stream_enable" {
+variable "stream_enabled" {
   type        = "string"
-  description = "Indicates whether Streams are to be enabled (tru) or disabled (false)"
-  default     = "true"
+  description = "Indicates whether Streams are to be enabled (true) or disabled (false)"
+  default     = ""
 }
 
 variable "stream_view_type" {
