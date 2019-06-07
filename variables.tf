@@ -90,6 +90,12 @@ variable "has_global_secondary_index" {
   default     = "false"
 }
 
+variable "has_local_secondary_index" {
+  type        = "string"
+  description = "TRUE or FALSE"
+  default     = "false"
+}
+
 variable "stream_enabled" {
   type        = "string"
   description = "Indicates whether Streams are to be enabled (true) or disabled (false)"
@@ -150,6 +156,12 @@ variable "index_name" {
   default     = ""
 }
 
+variable "index_hash_key" {
+  type        = "string"
+  description = "The name of the hash key; must be defined"
+  default     = ""
+}
+
 variable "index_range_key" {
   type        = "string"
   description = "The name of the range key; must be defined"
@@ -163,9 +175,9 @@ variable "projection_type" {
 }
 
 variable "non_key_attributes" {
-  type        = "string"
+  type        = "list"
   description = "Only required with INCLUDE as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table"
-  default     = ""
+  default     = []
 }
 
 ##Variable for global_secondary_index
