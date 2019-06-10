@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ../../
+cd ../
 echo "" > README.md
 for i in `ls doc`
   do cat ./doc/$i >> README.md
