@@ -1,4 +1,4 @@
-#Tf-aws-dynamodb
+# Tf-aws-dynamodb
 
 Terraform module which creates Dynamodb Tables resources on AWS.
 
@@ -7,7 +7,7 @@ Terraform module which creates Dynamodb Tables resources on AWS.
   You can define a maximum of 5 local secondary indexes and 5 global secondary indexes per table.
   Maximum autoscaling capacity and threshold default configuration can be overwritten from module or variables.tf
 ```
-##Features
+## Features
   -  Autoscaling
   -  Point-in-time recovery
   -  Server side encryption
@@ -17,7 +17,7 @@ Terraform module which creates Dynamodb Tables resources on AWS.
   -  Stream  (optional)
 
 
-##Usage
+## Usage
 
 ```hcl
 
