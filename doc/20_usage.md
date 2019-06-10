@@ -54,4 +54,4 @@ module "AppSyncCommentTable-Mao819rm" {
   projection_type             = "${var.projection_type}"
   has_local_secondary_index   = "true"
 }
-
+```

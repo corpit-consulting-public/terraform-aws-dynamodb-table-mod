@@ -1,4 +1,4 @@
-# Tf-aws-dynamodb
+# tf-aws-dynamodb
 
 Terraform module which creates Dynamodb Tables resources on AWS.
 
