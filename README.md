@@ -2,11 +2,11 @@
 
 Terraform module which creates Dynamodb Tables resources on AWS.
 
-```bash
-  IMPORTANT! 
+
+ _IMPORTANT!_* 
   You can define a maximum of 5 local secondary indexes and 5 global secondary indexes per table.
-  Maximum autoscaling capacity and threshold default configuration can be overwritten from module or variables.tf
-```
+  Maximum autoscaling capacity and threshold default configuration can be overwritten from module or variables.tf *
+
 ## Features
   -  Autoscaling
   -  Point-in-time recovery
@@ -79,4 +79,5 @@ module "AppSyncCommentTable-Mao819rm" {
 ## Inputs
 
 | Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
 
