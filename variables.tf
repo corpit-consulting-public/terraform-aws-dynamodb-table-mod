@@ -42,11 +42,13 @@ variable "attribute" {
 variable "attribute_name" {
   type        = "string"
   description = "The name of attribute"
+  default     =   ""
 }
 
 variable "type" {
   type        = "string"
   description = "Attribute type, which must be a scalar type: S(string), N(number) or B(binary data)"
+  default     = ""
 }
 
 variable "ttl" {
@@ -148,21 +150,25 @@ variable "delete" {
 variable "index_name" {
   type        = "string"
   description = "The name of the index. Required if has_local_secondary_index is true"
+  default     = ""
 }
 
 variable "index_hash_key" {
   type        = "string"
   description = "The name of the hash key; must be defined. Required if has_local_secondary_index is true"
+  default     = ""
 }
 
 variable "index_range_key" {
   type        = "string"
   description = "The name of the range key; must be defined. Required if has_local_secondary_index is true"
+  default     = ""
 }
 
 variable "projection_type" {
   type        = "string"
   description = "One of ALL, INCLUDE or KEYS_ONLY where ALL projects every attribute into the index, KEYS_ONLY projects just the hash and range key into the index, an INCLUDE projects only the keys specified the non_key_attributes parameter. Required if has_local_secondary_index is true"
+  default     = ""
 }
 
 variable "non_key_attributes" {
@@ -176,6 +182,7 @@ variable "non_key_attributes" {
 variable "global_index_name" {
   type        = "string"
   description = "The name of the index. Required if has_global_secondary_index is true"
+  default     = ""
 }
 
 variable "global_index_write_capacity" {
@@ -193,6 +200,7 @@ variable "global_index_read_capacity" {
 variable "global_index_hash_key" {
   type        = "string"
   description = "The name of the hash key in the index; must be defined as an attribute in the resource. Required if has_global_secondary_index is true"
+  default     = ""
 }
 
 variable "global_index_range_key" {
@@ -204,6 +212,7 @@ variable "global_index_range_key" {
 variable "global_index_projection_type" {
   type        = "string"
   description = "One of ALL, INCLUDE or KEYS_ONLY where ALL projects every attribute into the index, KEYS_ONLY project just the hash and range key into the index, and ICLUDE projects only the keys specified in the non_key_attributes parameter. Required if has_global_secondary_index is true"
+  default     = ""
 }
 
 variable "global_index_non_key_attributes" {
