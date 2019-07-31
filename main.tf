@@ -77,3 +77,4 @@ resource "aws_dynamodb_table" "dynamodb-table-3" {
    # name = "TopScore"
    # type = "N"
  # }]
+
