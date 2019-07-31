@@ -7,6 +7,12 @@ output "arn" {
   value       = "${element(coalescelist(aws_dynamodb_table.dynamodb-table-1.*.arn,aws_dynamodb_table.dynamodb-table-1_on_demand.*.arn,aws_dynamodb_table.dynamodb-table-2.*.arn,aws_dynamodb_table.dynamodb-table-3.*.arn),0)}"
 }
 
+output "stream_arn" {
+  description = "The ARN of the Table Stream. Only available when stream_enabled = true"
+  value       = "${element(coalescelist(aws_dynamodb_table.dynamodb-table-1.*.stream_arn,aws_dynamodb_table.dynamodb-table-1_on_demand.*.stream_arn,aws_dynamodb_table.dynamodb-table-2.*.stream_arn,aws_dynamodb_table.dynamodb-table-3.*.stream_arn),0)}"
+}
+
+
 #output "id" {
  # description = "Table name"
 #  value       = "${aws_dynamodb_table.basic-dynamodb-table.id}"
