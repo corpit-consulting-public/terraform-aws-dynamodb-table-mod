@@ -12,6 +12,10 @@ output "stream_arn" {
   value       = "${element(coalescelist(aws_dynamodb_table.dynamodb-table-1.*.stream_arn,aws_dynamodb_table.dynamodb-table-1_on_demand.*.stream_arn,aws_dynamodb_table.dynamodb-table-2.*.stream_arn,aws_dynamodb_table.dynamodb-table-3.*.stream_arn),0)}"
 }
 
+output "hash_key" {
+  description = "The attribute to use as the hash (partition) key. Must also be defined as an attribute."
+  value       = "${element(coalescelist(aws_dynamodb_table.dynamodb-table-1.*.hash_key,aws_dynamodb_table.dynamodb-table-1_on_demand.*.hash_key,aws_dynamodb_table.dynamodb-table-2.*.hash_key,aws_dynamodb_table.dynamodb-table-3.*.hash_key),0)}"
+}
 
 #output "id" {
  # description = "Table name"
