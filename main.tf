@@ -1,9 +1,20 @@
 resource "aws_dynamodb_table" "dynamodb-table-1" {
-  count            = "${ !var.has_global_secondary_index && !var.has_local_secondary_index ? 1 : 0}"
+  count            = "${ !var.has_global_secondary_index && !var.has_local_secondary_index && var.billing_mode == "PROVISIONED" ? 1 : 0}"
   name             = "${var.name}"
   billing_mode     = "${var.billing_mode}"
   read_capacity    = "${var.read_capacity}"
   write_capacity   = "${var.write_capacity}"
+  hash_key         = "${var.hash_key}"
+  range_key        = "${var.range_key}"
+  attribute        = "${var.attribute}"
+  stream_enabled   = "${var.stream_enabled}"
+  stream_view_type = "${var.stream_view_type}"
+} 
+
+resource "aws_dynamodb_table" "dynamodb-table-1_on_demand" {
+  count            = "${ !var.has_global_secondary_index && !var.has_local_secondary_index && var.billing_mode != "PROVISIONED" ? 1 : 0}"
+  name             = "${var.name}"
+  billing_mode     = "${var.billing_mode}"
   hash_key         = "${var.hash_key}"
   range_key        = "${var.range_key}"
   attribute        = "${var.attribute}"
@@ -66,3 +77,4 @@ resource "aws_dynamodb_table" "dynamodb-table-3" {
    # name = "TopScore"
    # type = "N"
  # }]
+
