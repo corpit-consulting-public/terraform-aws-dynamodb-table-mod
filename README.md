@@ -126,5 +126,7 @@ If you want to update README.md file, run that script while being in 'hooks' fol
 | Name | Description |
 |------|-------------|
 | arn | Table ARN |
+| hash\_key | The attribute to use as the hash (partition) key. Must also be defined as an attribute. |
 | id | Table name |
+| stream\_arn | The ARN of the Table Stream. Only available when stream_enabled = true |
 
