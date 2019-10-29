@@ -3,12 +3,12 @@
 ```hcl
 module "dynamodb-Table" {
   source                   = "./modules/terraform-aws-dynamodb-table"
-  name                     = var.dynamodb_params["name"]
-  billing_mode             = var.dynamodb_params["billing_mode"]
-  read_capacity            = var.dynamodb_params["read_capacity"]
-  write_capacity           = var.dynamodb_params["write_capacity"]
-  hash_key                 = var.dynamodb_params["hash_key"]
-  range_key                = var.dynamodb_params["range_key"]
+  name                     = var.name
+  billing_mode             = var.billing_mode
+  read_capacity            = var.read_capacity
+  write_capacity           = var.write_capacity
+  hash_key                 = var.hash_key
+  range_key                = var.range_key
   attribute                = [
       {
        name = "id"
