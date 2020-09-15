@@ -16,3 +16,8 @@ output "hash_key" {
   description = "The attribute to use as the hash (partition) key. Must also be defined as an attribute."
   value       = aws_dynamodb_table.dynamodb-table.hash_key
 }
+
+output "range_key" {
+  description = "The attribute to use as the hash (partition) key. Must also be defined as an attribute."
+  value       = aws_dynamodb_table.dynamodb-table.range_key
+}
